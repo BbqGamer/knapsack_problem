@@ -31,7 +31,7 @@ class ProblemInstance {
         return items.size();
     }
 
-    bool isSolutionValid();
+    bool isSolutionValid() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const ProblemInstance& instance);

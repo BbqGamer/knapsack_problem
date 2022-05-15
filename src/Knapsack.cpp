@@ -13,7 +13,7 @@ ProblemInstance generateRandomProblemInstance(int n, int C) {
     return instance;
 }
 
-bool ProblemInstance::isSolutionValid() {
+bool ProblemInstance::isSolutionValid() const {
     int weight = 0;
     for(int i = 0; i < this->size(); i++) {
         if (solution[i]) {
