@@ -16,7 +16,6 @@ struct Item {
 
 std::ostream& operator<<(std::ostream& os, const Item& item);
 
-
 class ProblemInstance {
     public:
     int C;
@@ -31,6 +30,8 @@ class ProblemInstance {
     int size() const {
         return items.size();
     }
+
+    bool isSolutionValid();
 };
 
 std::ostream& operator<<(std::ostream& os, const ProblemInstance& instance);

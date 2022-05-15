@@ -13,6 +13,16 @@ ProblemInstance generateRandomProblemInstance(int n, int C) {
     return instance;
 }
 
+bool ProblemInstance::isSolutionValid() {
+    int weight = 0;
+    for(int i = 0; i < this->size(); i++) {
+        if (solution[i]) {
+            weight += items[i].w;
+        }
+    }
+    return weight <= C;
+}
+
 std::ostream& operator<<(std::ostream& os, const Item& item) {
     os << "(" << item.w << ", " << item.v << ")";
     return os;
