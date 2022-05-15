@@ -34,3 +34,28 @@ void BruteForce::solve() {
         }
     }
 }
+
+
+void DynamicSolver::solve() {
+    bestResult = solveRec(instance.size()-1, instance.C);
+}
+
+int DynamicSolver::solveRec(int n, int W) {
+    if(n >= 0 && cache[n][W] != -1) {
+        return cache[n][W];
+    }
+
+    int result, tmp1, tmp2;
+    if(n < 0 || W == 0) {
+        return 0;
+    } else if (instance.items[n].w > W) {
+        result = solveRec(n-1, W);
+    } else {
+        tmp1 = solveRec(n-1, W);
+        tmp2 = instance.items[n].v + solveRec(n-1, W - instance.items[n].w);
+        result = std::max(tmp1, tmp2);
+    }
+
+    cache[n][W] = result;
+    return result;
+}

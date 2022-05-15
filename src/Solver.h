@@ -21,3 +21,35 @@ public:
         bestResult = 0;
     }
 };
+
+class DynamicSolver : public Solver {
+
+int** cache;
+int solveRec(int n, int W);
+
+public:
+    void solve();
+
+    DynamicSolver() {
+        cache = nullptr;
+    }
+
+    DynamicSolver(ProblemInstance& instance) {
+        this->instance = instance;
+        bestResult = 0;
+        cache = new int*[instance.size() + 1];
+        for(int i = 0; i <= instance.size(); i++) {
+            cache[i] = new int[instance.C + 1];
+            for(int j = 0; j <= instance.C; j++) {
+                cache[i][j] = -1;
+            }
+        }
+    }
+
+    ~DynamicSolver() {
+        for(int i = 0; i < instance.size() + 1; i++) {
+            delete[] cache[i];
+        }
+        delete[] cache;
+    }
+};
