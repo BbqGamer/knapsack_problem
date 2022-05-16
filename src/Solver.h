@@ -31,6 +31,7 @@ public:
     }
 
     void setInstance(ProblemInstance instance) {
+        bestResult = 0;
         this->instance = instance;
     }
 };
@@ -64,6 +65,7 @@ public:
     }
 
     void setInstance(ProblemInstance instance) {
+        bestResult = 0;
         freeMemory();
 
         this->instance = instance;
@@ -88,6 +90,7 @@ public:
     }
 
     void setInstance(ProblemInstance instance) {
+        bestResult = 0;
         this->instance = instance;
     }
 

@@ -12,6 +12,8 @@ class SolverStopwatch {
     void setInstance(ProblemInstance& instance);
     std::string getSolverName() {return solver->getName();};
 
+    int getBestResult() {return solver->bestResult;};
+
 };
 
 class Experiment {

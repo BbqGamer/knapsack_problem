@@ -22,10 +22,12 @@ void Experiment::run() {
     std::ofstream output_file;
     output_file.open(output_filename);
 
+    output_file << "n,method,time,result" << std::endl;
+
     for(auto& instance : instances) {
         for(auto& sw : solverWatches) {
             sw.setInstance(instance);
-            output_file << instance.size() << "," << sw.getSolverName() << "," << sw.measureSolve() << std::endl;
+            output_file << instance.size() << "," << sw.getSolverName() << "," << sw.measureSolve() << "," << sw.getBestResult() << std::endl;
         }
     }
 
