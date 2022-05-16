@@ -1,0 +1,10 @@
+.vscode
+build/*
+*.txt
+output/*
+googletest
+!.gitkeep
+!people.txt
+
+tst/
+lib/

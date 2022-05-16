@@ -11,10 +11,6 @@ class Solver {
 
     virtual std::string getName() = 0;
     virtual void setInstance(ProblemInstance instance) = 0;
-
-    ~Solver() {
-            
-    };
 };
 
 std::ostream& operator<<(std::ostream& os, const Solver& solver);
