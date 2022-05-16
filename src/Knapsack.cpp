@@ -1,5 +1,9 @@
 #include "Knapsack.h"
 
+bool operator<(const Item &lhs, const Item &rhs) {
+    return lhs.v/lhs.w < rhs.v/rhs.w;
+}
+
 ProblemInstance generateRandomProblemInstance(int n, int C) {
     ProblemInstance instance;
     instance.C = C;

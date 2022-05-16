@@ -6,13 +6,15 @@
 #include <stdio.h>
 #include <iostream>
 
-#define MAX_VALUE 100
+#define MAX_VALUE 1000
 #define MAX_W_TO_C_RATIO 0.3
 
 struct Item {
     int w;
     int v;
 };
+
+bool operator<(const Item &lhs, const Item &rhs); //FOR GREEDY METHOD
 
 std::ostream& operator<<(std::ostream& os, const Item& item);
 

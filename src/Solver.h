@@ -53,3 +53,14 @@ public:
         delete[] cache;
     }
 };
+
+
+class GreedySolver : public Solver {
+public:
+    void solve();
+
+    GreedySolver(ProblemInstance& instance) {
+        this->instance = instance;
+        bestResult = 0;
+    }
+};   

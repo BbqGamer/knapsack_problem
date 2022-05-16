@@ -1,4 +1,5 @@
 #include "Solver.h"
+#include <algorithm>
 
 std::ostream& operator<<(std::ostream& os, const Solver& solver) {
     std::cout << "Found the solution with value of " << solver.bestResult << std::endl;
@@ -58,4 +59,19 @@ int DynamicSolver::solveRec(int n, int W) {
 
     cache[n][W] = result;
     return result;
+}
+
+
+void GreedySolver::solve() {
+    std::sort(instance.items.begin(), instance.items.end()); //SORT BY GREEDY MEASURE v/w
+    int w = 0;
+    int i = instance.size() - 1;
+    while(w < instance.C && i > 0) {
+        if(instance.items[i].w <= (instance.C - w)) {
+            w += instance.items[i].w;
+            instance.solution[i] = 1;
+            bestResult += instance.items[i].v;
+        }
+        i--;
+    }
 }
