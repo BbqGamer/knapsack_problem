@@ -1,21 +1,21 @@
 #include "Knapsack.h"
 #include "Solver.h"
+#include "Stopwatch.h"
 
 int main() {
-    ProblemInstance instance = generateRandomProblemInstance(10, 1000);
-    std::cout << instance << std::endl;
+    ProblemInstance i1 = generateRandomProblemInstance(10, 1000);
+    ProblemInstance i2 = generateRandomProblemInstance(15, 1000);
 
-    BruteForce solver(instance);
-    solver.solve();
-    std::cout << solver << std::endl;
+    BruteForce s1 = BruteForce();
+    DynamicSolver s2 = DynamicSolver();
+    GreedySolver s3 = GreedySolver();
+    Solver* s[] = {&s1, &s2, &s3};
 
-    DynamicSolver solver2(instance);
-    solver2.solve();
-    std::cout << solver2 << std::endl;
-
-    GreedySolver solver3(instance);
-    solver3.solve();
-    std::cout << solver3 << std::endl;
+    std::string output_filename = "../output/test.csv";
+    std::vector<SolverStopwatch> solverWatches = {SolverStopwatch(s[0]), SolverStopwatch(s[1]), SolverStopwatch(s[2])};
+    std::vector<ProblemInstance> instances = {i1, i2};
+    Experiment experiment = Experiment(output_filename, solverWatches, instances);   
+    experiment.run(); 
 
     return 0;
 }

@@ -36,6 +36,27 @@ void BruteForce::solve() {
     }
 }
 
+void DynamicSolver::allocateMemory() {
+    bestResult = 0;
+    cache = new int*[instance.size() + 1];
+    for(int i = 0; i <= instance.size(); i++) {
+        cache[i] = new int[instance.C + 1];
+        for(int j = 0; j <= instance.C; j++) {
+            cache[i][j] = -1;
+        }
+    }
+}
+
+void DynamicSolver::freeMemory() {
+    if(cache == nullptr)
+        return;
+
+
+    for(int i = 0; i <= instance.size(); i++) {
+        delete[] cache[i];
+    }
+    delete[] cache;
+}
 
 void DynamicSolver::solve() {
     bestResult = solveRec(instance.size()-1, instance.C);
