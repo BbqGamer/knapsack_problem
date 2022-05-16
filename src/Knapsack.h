@@ -39,3 +39,4 @@ class ProblemInstance {
 std::ostream& operator<<(std::ostream& os, const ProblemInstance& instance);
 
 ProblemInstance generateRandomProblemInstance(int n, int C);
+std::vector<ProblemInstance> generateProblemInstanceSet(int startN, int endN, int step, int KnapsackCapacity, int redundant=1);

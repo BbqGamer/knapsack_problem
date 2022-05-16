@@ -40,3 +40,16 @@ std::ostream& operator<<(std::ostream& os, const ProblemInstance& instance) {
     }
     return os;
 }
+
+std::vector<ProblemInstance> generateProblemInstanceSet(int startN, int endN, int step, int KnapsackCapacity, int redundant) {
+    std::vector<ProblemInstance> instances;
+
+    for(int n = startN; n <= endN; n += step) {
+        for (int i = 0; i < redundant; i++) {
+            ProblemInstance instance = generateRandomProblemInstance(n, KnapsackCapacity);
+            instances.push_back(instance);
+        }
+    }
+
+    return instances;
+}
