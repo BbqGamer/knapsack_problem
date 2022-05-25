@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <random>
 
-#define MAX_VALUE 1000
-#define MAX_W_TO_C_RATIO 0.3
+#define VALUES_CENTERED_AROUND 1000
+#define WEIGHTS_CENTERED_AROUND 0.5
 
 struct Item {
     int w;

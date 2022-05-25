@@ -7,10 +7,16 @@ bool operator<(const Item &lhs, const Item &rhs) {
 ProblemInstance generateRandomProblemInstance(int n, int C) {
     ProblemInstance instance;
     instance.C = C;
+
+    std::random_device rd{};
+    std::mt19937 gen{rd()};
+    std::normal_distribution<> d{WEIGHTS_CENTERED_AROUND * C, (float)C/10};
+    std::normal_distribution<> vd{VALUES_CENTERED_AROUND, (float)VALUES_CENTERED_AROUND/5};
+
     for (int i = 0; i < n; i++) {
         Item item;
-        item.w = rand() % int(MAX_W_TO_C_RATIO * C) + 1;
-        item.v = rand() % MAX_VALUE + 1;
+        item.w = std::round(d(gen));
+        item.v = std::round(vd(gen));
         instance.items.push_back(item);
         instance.solution.push_back(0);
     }
