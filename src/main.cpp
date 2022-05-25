@@ -28,11 +28,8 @@ void exp2() {
 }
 
 int main() {
-    // ProblemInstance i1 = generateRandomProblemInstance(100, 1000);
-    // std::cout << i1 << std::endl;
 
-    //exp1();
-
+    exp1();
     exp2();
 
     return 0;
